@@ -1,0 +1,16 @@
+.DS_Store
+._*
+.build/
+release/
+*.app/
+*.zip
+*.dmg
+*.log
+*.sqlite*
+*.db
+.env*
+*.pem
+*.key
+*.p12
+*.pfx
+local-config/
