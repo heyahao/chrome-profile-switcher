@@ -19,7 +19,7 @@
 
 ## 发行物验收
 
-打包脚本只收录两个 Chrome App、可选 Safari App、README、MIT LICENSE 与重新设置脚本。源码 ZIP 从公开 Git HEAD 导出。发行校验文件使用 SHA-256；它证明文件完整性，不代表 Apple 公证。
+打包脚本只收录两个 Chrome App、可选 Safari App、README、docs 使用/开发说明、MIT LICENSE 与重新设置脚本。源码 ZIP 从公开 Git HEAD 导出。发行校验文件使用 SHA-256；它证明文件完整性，不代表 Apple 公证。
 
 公开 Git 只包含整理后的新历史，署名使用公开 GitHub 用户名与 noreply 邮箱。旧私有仓库没有改成公开，原有本地应用未被覆盖。
 
