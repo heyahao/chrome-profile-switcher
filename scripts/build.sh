@@ -7,7 +7,7 @@ version="$(< VERSION)"
 mkdir -p .build
 stage=$(/usr/bin/mktemp -d "$project_dir/.build/apps-XXXXXX")
 common=(-O -target arm64-apple-macosx13.0 -debug-prefix-map "$project_dir=/src")
-/usr/bin/xcrun swiftc "${common[@]}" src/Configuration.swift src/Setup.swift src/ChromeProfileLauncher.swift -o "$stage/chrome"
+/usr/bin/xcrun swiftc "${common[@]}" src/Configuration.swift src/Setup.swift src/ChromeRouting.swift src/ChromeProfileLauncher.swift -o "$stage/chrome"
 /usr/bin/xcrun swiftc "${common[@]}" src/SafariWindowPolicy.swift src/SafariWindowLauncher.swift -o "$stage/safari"
 make_app() {
   local name="$1" id="$2" binary="$3" slot="$4"
@@ -26,7 +26,7 @@ make_app() {
     -c 'Add :LSMinimumSystemVersion string 13.0' \
     -c 'Add :LSUIElement bool true' \
     -c "Add :LauncherSlot string $slot" \
-    -c 'Add :NSAppleEventsUsageDescription string 用于通过系统事件切换或最小化您命名的 Chrome 窗口。' \
+    -c 'Add :NSAppleEventsUsageDescription string 用于通过 Chrome 个人资料菜单切换，并单独隐藏或恢复对应窗口。' \
     "$app/Contents/Info.plist"
   /usr/bin/codesign --force --sign - --requirements "=designated => identifier \"$id\"" "$app"
 }
